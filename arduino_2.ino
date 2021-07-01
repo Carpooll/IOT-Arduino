@@ -73,6 +73,20 @@ void money(){
     
     if(state!=-1){
       if(state!=42){
+        if(state==100){ 
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("Depositing");
+          delay(2300);
+          lcd.clear();
+          lcd.print("Deposite");
+          lcd.setCursor(0,1); 
+          lcd.print("Successfully");
+          delay(2000);
+          on_id = true;
+          on_money = false;
+          id();
+        }
       	lcd.setCursor(c, 1);
       	c++;
 
@@ -90,8 +104,8 @@ void money(){
           Serial.println(c);
           lcd.print(state); 
         }
-
-    }else if(state == 42 && c>=0){
+      }
+      else if(state == 42 && c>=0){
       c--;
       Serial.println('Borrar');
       Serial.println(c);
@@ -99,20 +113,8 @@ void money(){
       lcd.setCursor(c, 1);
       lcd.print(" ");
 	  
-    }else if(state==35){ 
-      lcd.setCursor(0, 0);
-      lcd.print("Depositing");
-      delay(2300);
-      lcd.clear();
-      lcd.print("Deposite");
-      lcd.setCursor(0,1); 
-      lcd.print("Successfully");
-      on_id = true;
-      on_money = true;
-      id();
+      }
     }
-  }
-    
   }
 }
 void choice(){
