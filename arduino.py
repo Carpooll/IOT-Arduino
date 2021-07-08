@@ -17,7 +17,7 @@ class casher():
                     # key= str(hashlib.sha256(str(token).encode('utf-8')))
                     key= str(token)
                     key = blake2b(digest_size=64).hexdigest()
-                    REQUEST_URL = f"http://127.0.0.1:5000/login/?user_id={userId}&money={money}&abc={key}"
+                    REQUEST_URL = f"https://carpool-arduino-backend.herokuapp.com//login/?user_id={userId}&money={money}&abc={key}"
                     _request = requests.get(REQUEST_URL)
                     if _request:
                         print("Your transaction was successful, see you soon!")
