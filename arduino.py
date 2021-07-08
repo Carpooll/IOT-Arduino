@@ -12,12 +12,10 @@ class casher():
             if money:
                 money_int= int(money)
                 if money_int > 0:
-                    #checar lo del token
                     token = f"Hi9@yBl4$j8WM91*4Wf8{userId}{money}"
-                    # key= str(hashlib.sha256(str(token).encode('utf-8')))
                     key= str(token)
                     key = blake2b(digest_size=64).hexdigest()
-                    REQUEST_URL = f"https://carpool-arduino-backend.herokuapp.com//login/?user_id={userId}&money={money}&abc={key}"
+                    REQUEST_URL = f"https://carpool-arduino-backend.herokuapp.com/login/?user_id={userId}&money={money}&abc={key}"
                     _request = requests.get(REQUEST_URL)
                     if _request:
                         print("Your transaction was successful, see you soon!")
